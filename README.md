@@ -234,3 +234,29 @@ Après le démarrage de `mongo`, vous pouvez taper le commande suivante pour cr�
 ```
 use myCollection
 ```
+
+# Configurer MongoDB pour l'application MEAN
+Dans un premier temps il faut créer dossier nommé `data` à la racine du serveur pour hébergé la BDD MongoDB.
+
+Ouvrir une fenêtre de terminal pour lancer le serveur de BDD en tapant la commande suivante :
+```
+sudo mongod --dbpath data
+```
+> En option il est possible de définir le port en ajoutant à la fin `--port 27018`
+
+Ouvir le shell mongo en tappant dans une nouvelle fenêtre la commande suivante :
+```
+mongo
+```
+> Si le port est changé au niveau du serveur, il faut également le préciser, de la même manière.
+
+Créer des un basse de données en tapant la commande suivante :
+```
+use blog
+```
+
+Puis ajouter des données dans cette base avec la commande :
+```
+db.posts.insert([{ "type" : "IMG", "title" : "Une image de sport", "content" : "http://lorempixel.com/400/200/sports", "tags" : [ "sport", "image" ], "data": { "author": "Julien Noyer", "state": "ONLINE", "likes": 10 } }, { "type" : "QUOTE", "title" : "Lorem ipsum dolor ismet", "content" : "", "tags" : [ "lorem", "image" ], "data": { "author": "John Doe", "state": "DRAFT", "likes": 0 } }, { "type" : "VID", "title" : "The Gladiators", "content" : "P8BKRCpVoug", "tags" : [ "rasta", "video" ], "data": { "author": "Julien Noyer", "state": "DRAFT", "likes": 0 } }, { "type" : "IMG", "title" : "Lorem ipsum dolor ismet", "content" : "http://lorempixel.com/400/200/people", "tags" : [ "lorem", "image" ], "data": { "author": "Carla Santa", "state": "ONLINE", "likes": 30 } }, { "type" : "IMG", "title" : "Une image de chat", "content" : "http://lorempixel.com/400/200/cat", "tags" : [ "chat", "image" ], "data": { "author": "John Doe", "state": "ONLINE", "likes": 20 } }])
+
+```
