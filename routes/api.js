@@ -21,7 +21,29 @@ Définition des routes
 
     // Récupérer la liste de post
     router.get('/posts/', (req, res)=> {
-        // TODO
+        // Connexion à la base de données MongoDb
+        mongoose.connect(mongoUrl, (err, db) =>{
+
+            // Tester la connexion
+            if(err){ res.send(err) } 
+            else {
+    
+                // Récupération des documents de la collection 'posts' => find
+                db.collection('posts').find().toArray((err, posts) => {
+    
+                    // Tester la commande MongoDb
+                    if(err){ res.send(err) }
+    
+                    else{ 
+                        // Envoyer les données au format json
+                        res.json(posts)
+                    };
+                });
+            };
+    
+            // Fermer la connexion à la base MongoDb
+            db.close();
+        });
     });
 //
 
