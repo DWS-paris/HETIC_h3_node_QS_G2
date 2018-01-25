@@ -15,7 +15,7 @@ Importer les composants serveur
 Configuration du serveur
 */
     // Définition des variables
-    const app =express();
+    const app = express();
     const port = process.env.PORT || 3000;
 
     // Définition du dossier static du client

@@ -176,5 +176,61 @@ router.get( '/', (req, res) => {
 
 <br>
 
-## Utilisation de MongoBD
-L'installatio  et la configuration de MongoDB est disponible à cette adresse (https://github.com/DWS-paris/MONGOstack/wiki)
+# Configuration de MongoBD
+## Installation sous Mac (Linux)
+L'installation de MongoDB se fait grâce à l'invité de commande, vous devez ouvrir une fenêtre d'invité de commande pour installer en global MongoDB sur votre machine :
+```
+sudo npm install mongodb -g
+```
+> Vous devez renseigner votre mot de passe administrateur et appuyer sur la touche `enter` pour valider l'installation.
+
+<br>
+
+### Création de la base de données de l'application
+Pour stocker les données de la base, vous devez créer un dossier nommé `data` dans le dossier de votre application. Vous devez ensuite ouvrir une fenêtre du terminal pour lancer MongoDB. Vous allez avoir besoin de deux fenêtres : une pour lancer le serveur et une deuxième pour exécuter des commandes sur le serveur. Ouvrez une première fenêtre et placez vous dans le dossier `data` de votre application pour lancer le serveur de BDD :
+```
+sudo mongod path/to/app/data/ --dbpath
+```
+> Cette commande lance le serveur de base de données dans le dossier (avantage Linux)
+
+Ouvrez une nouvelle fenêtre de terminal et lancer la commande pour vous interfacer avec la base de données :
+```
+mongo
+```
+
+Après le démarrage de `mongo`, vous pouvez taper le commande suivante pour créer votre collection :
+```
+use myCollection
+```
+<br>
+
+## Installation sous Windows
+L'installation de MongoDB sous Windows se fait en téléchargeant l'application directement sur votre ordinateur en choisissant la bonne version sur le site de MongoDB à l'adresse suivante
+```
+https://www.mongodb.com/download-center#community
+```
+Une fois le fichier téléchargé, vous devez l'exécuter et suivre les étapes qui s'affichent à l'écran.
+
+<br>
+
+### Création de la base de données de l'application
+Pour stocker les données de la base, vous devez créer une architecture de dossiers `data\db` dans le dossier de votre disque `C:`. Vous devez ensuite ouvrir une fenêtre `prompt` pour lancer MongoDB. Vous allez avoir besoin de deux fenêtres : une pour lancer le serveur et une deuxième pour exécuter des commandes sur le serveur. Ouvrez une première fenêtre et placez vous dans le dossier de MongoDB dont l'adresse doit resembler à celle ci-dessous :
+```
+C:\Program Files\MongoDB\Server\3.4\bin
+```
+> La version, ici `3.4` peut être différente
+
+Dans ce dossier se trouve les exécutables dont vous aurez besoin pour faire tourner MongoDB sur votre machine. Vous devez d'abord lancer le serveur avec mongod :
+```
+mongod.exe
+```
+
+Puis dans une nouvelle fenêtre placée au même endroit, exécuter `mongo` pour vous interfacer avec la BDD :
+```
+mongo.exe
+```
+
+Après le démarrage de `mongo`, vous pouvez taper le commande suivante pour créer votre collection :
+```
+use myCollection
+```
