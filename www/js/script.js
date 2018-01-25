@@ -1,6 +1,8 @@
 // Cahrgement du DOM
 document.addEventListener('DOMContentLoaded', () => {
 
+    let myBtn = document.querySelector('button');
+
     /*
     Requête asynchrone en ES6
     Fonction fetch() plus le système de Promise
@@ -22,12 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Manipuler les données de la réponse
             .then(data =>  {
                 console.log(data)
-                document.querySelector('#apiResponse').innerHTML = data;
             })
 
             // Capter l'erreur
             .catch((err) =>  console.log(err) );
         }
     //
-    
+
+    // Cahrger les données au clic sur le bouton
+    myBtn.addEventListener('click', ()=>{
+        asyncLoadFunction('http://localhost:3000/api/posts')
+    })
+
 });
